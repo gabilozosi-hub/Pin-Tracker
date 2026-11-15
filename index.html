@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="top-card">
+
+    <div id="avatar" class="avatar">
+        👦
+    </div>
+
+    <h1 id="personName">
+        Family Member
+    </h1>
+
+    <p id="status">
+        Press Start Tracking
+    </p>
+
+    <button onclick="startTracking()">
+        Start Tracking
+    </button>
+
+</div>
+
+<iframe id="map"></iframe>
+
+<div class="bottom-panel">
+
+    <div class="info-card">
+        <h3>📍 Status</h3>
+        <p id="safeStatus">Waiting...</p>
+    </div>
+
+    <div class="info-card">
+        <h3>📡 Signal</h3>
+        <p id="accuracy">--</p>
+    </div>
+
+    <div class="info-card">
+        <h3>🕒 Last Seen</h3>
+        <p id="lastSeen">--</p>
+    </div>
+
+</div>
+
+<script src="tracker.js"></script>
+
+</body>
+</html>
