@@ -1,40 +1,62 @@
-// RESET IF YOU WANT TO TEST AGAIN
-// localStorage.clear();
+loadProfile();
 
-let savedName = localStorage.getItem("trackerName");
-let savedAvatar = localStorage.getItem("trackerAvatar");
+function loadProfile(){
 
-if(!savedName){
+    let savedName =
+        localStorage.getItem("trackerName");
 
-    savedName = prompt("Who are we tracking today?");
+    let savedAvatar =
+        localStorage.getItem("trackerAvatar");
 
-    let choice = prompt(
-        "Choose Avatar\n\n1 = Boy 👦\n2 = Girl 👧"
-    );
+    if(!savedName){
+
+        changeProfile();
+
+    }else{
+
+        document.getElementById("personName").innerHTML =
+        savedName;
+
+        document.getElementById("avatar").innerHTML =
+        savedAvatar;
+
+    }
+
+}
+
+function changeProfile(){
+
+    let name =
+        prompt("Who are we tracking today?");
+
+    if(!name) return;
+
+    let choice =
+        prompt("Choose Avatar\n\n1 = Boy 👦\n2 = Girl 👧");
+
+    let avatar = "👦";
 
     if(choice === "2"){
-        savedAvatar = "👧";
-    }else{
-        savedAvatar = "👦";
+        avatar = "👧";
     }
 
     localStorage.setItem(
         "trackerName",
-        savedName
+        name
     );
 
     localStorage.setItem(
         "trackerAvatar",
-        savedAvatar
+        avatar
     );
 
+    document.getElementById("personName").innerHTML =
+    name;
+
+    document.getElementById("avatar").innerHTML =
+    avatar;
+
 }
-
-document.getElementById("personName").innerHTML =
-savedName || "Family Member";
-
-document.getElementById("avatar").innerHTML =
-savedAvatar || "👦";
 
 function startTracking(){
 
@@ -45,9 +67,14 @@ function startTracking(){
 
         function(position){
 
-            const lat = position.coords.latitude;
-            const lng = position.coords.longitude;
-            const acc = position.coords.accuracy;
+            const lat =
+                position.coords.latitude;
+
+            const lng =
+                position.coords.longitude;
+
+            const acc =
+                position.coords.accuracy;
 
             document.getElementById("map").src =
             `https://maps.google.com/maps?q=${lat},${lng}&z=18&output=embed`;
@@ -94,5 +121,8 @@ function startTracking(){
             maximumAge:0
         }
 
+    );
+
+}
     );
 }
