@@ -5,10 +5,11 @@
 }
 
 body{
-    font-family:Segoe UI,sans-serif;
+    font-family:'Segoe UI',sans-serif;
     background:#eef6ff;
-    overflow:hidden;
 }
+
+/* MAP */
 
 #map{
     width:100%;
@@ -16,20 +17,22 @@ body{
     border:none;
 }
 
+/* PROFILE CARD */
+
 .top-card{
 
     position:absolute;
 
-    top:20px;
+    top:15px;
     left:50%;
 
     transform:translateX(-50%);
 
     z-index:1000;
 
-    background:white;
+    width:min(92%,380px);
 
-    width:320px;
+    background:white;
 
     border-radius:25px;
 
@@ -37,48 +40,80 @@ body{
 
     padding:20px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 .avatar{
-    font-size:50px;
+
+    font-size:60px;
+
     margin-bottom:10px;
 }
 
-.top-card h1{
+#personName{
+
     color:#2563eb;
+
+    margin-bottom:5px;
 }
 
-.top-card button{
+#status{
 
-    margin-top:10px;
+    color:#555;
 
-    background:#2563eb;
+    margin-bottom:15px;
+}
 
-    color:white;
+button{
+
+    width:100%;
 
     border:none;
 
-    padding:12px 25px;
+    padding:14px;
 
     border-radius:999px;
 
     cursor:pointer;
+
+    margin-top:8px;
+
+    color:white;
+
+    font-size:16px;
 }
+
+button:first-of-type{
+
+    background:#2563eb;
+}
+
+.edit-btn{
+
+    background:#64748b;
+}
+
+/* INFO CARDS */
 
 .bottom-panel{
 
     position:absolute;
 
-    bottom:20px;
+    bottom:15px;
 
     left:50%;
 
     transform:translateX(-50%);
 
-    display:flex;
+    width:95%;
 
-    gap:15px;
+    max-width:700px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
 
     z-index:1000;
 }
@@ -87,38 +122,48 @@ body{
 
     background:white;
 
-    width:180px;
-
     padding:15px;
 
     border-radius:20px;
 
     text-align:center;
 
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
 }
 
 .info-card h3{
+
     color:#2563eb;
+
     margin-bottom:8px;
 }
 
-/* Mobile */
+/* MOBILE */
 
 @media(max-width:768px){
 
-    .top-card{
-        width:90%;
+    .bottom-panel{
+
+        grid-template-columns:1fr 1fr;
     }
+
+    .info-card:last-child{
+
+        grid-column:1 / span 2;
+    }
+
+}
+
+@media(max-width:450px){
 
     .bottom-panel{
-        width:95%;
-        flex-wrap:wrap;
-        justify-content:center;
+
+        grid-template-columns:1fr;
     }
 
-    .info-card{
-        width:120px;
+    .info-card:last-child{
+
+        grid-column:auto;
     }
 
 }
